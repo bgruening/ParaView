@@ -36,8 +36,7 @@ public:
   {
     UNINITIALIZED,
     MODIFIED,
-    UNMODIFIED,
-    ABORTED
+    UNMODIFIED
   };
 
   pqProxy(const QString& group, const QString& name, vtkSMProxy* proxy, pqServer* server,
