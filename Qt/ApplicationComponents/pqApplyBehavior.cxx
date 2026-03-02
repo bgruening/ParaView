@@ -170,12 +170,7 @@ void pqApplyBehavior::applied(pqPropertiesPanel*, pqProxy* pqproxy)
     ADD_UNDO_ELEM(undoElement);
     undoElement->Delete();
   }
-
-  // Abort can happen during the `showData` call
-  if (pqproxy->modifiedState() != pqProxy::ABORTED)
-  {
-    pqproxy->setModifiedState(pqProxy::UNMODIFIED);
-  }
+  pqproxy->setModifiedState(pqProxy::UNMODIFIED);
 
   // Make sure filters menu enable state is updated
   Q_EMIT pqApplicationCore::instance()->forceFilterMenuRefresh();

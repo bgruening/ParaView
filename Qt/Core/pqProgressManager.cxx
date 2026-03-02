@@ -9,7 +9,6 @@
 #include "pqApplicationCore.h"
 #include "pqCoreConfiguration.h"
 #include "pqCoreUtilities.h"
-#include "pqProxy.h"
 #include "pqServer.h"
 #include "pqServerManagerModel.h"
 #include "vtkAlgorithm.h"
@@ -182,10 +181,6 @@ void pqProgressManager::triggerAbort()
             vtkVLog(PARAVIEW_LOG_APPLICATION_VERBOSITY(),
               "abort gid=" << abortGid << ",object=" << algorithm->GetObjectDescription());
             algorithm->SetAbortExecuteAndUpdateTime();
-            pqApplicationCore* core = pqApplicationCore::instance();
-            pqServerManagerModel* smModel = core->getServerManagerModel();
-            pqProxy* pqproxy = smModel->findItem<pqProxy*>(proxy);
-            pqproxy->setModifiedState(pqProxy::ABORTED);
           }
           else
           {
