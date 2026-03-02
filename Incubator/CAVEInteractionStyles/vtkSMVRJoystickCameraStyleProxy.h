@@ -62,6 +62,16 @@ public:
   vtkGetMacro(InvertYAxis, bool);
   ///@}
 
+  ///@{
+  /**
+   * Set/Get the inversion of the movements of the camera (false by default).
+   */
+  vtkSetMacro(InvertFwdMovement, bool);
+  vtkGetMacro(InvertFwdMovement, bool);
+  vtkSetMacro(InvertRightMovement, bool);
+  vtkGetMacro(InvertRightMovement, bool);
+  ///@}
+
   /**
    * Enum axis to retrieve the forward, the right and the up axis of the scene
    */
@@ -108,7 +118,9 @@ private:
   bool InvertYAxis = false;
 
   double MoveForward = 0;
+  bool InvertFwdMovement = false;
   double MoveRight = 0;
+  bool InvertRightMovement = false;
 
   Axis UpAxis = Y_AXIS;
 

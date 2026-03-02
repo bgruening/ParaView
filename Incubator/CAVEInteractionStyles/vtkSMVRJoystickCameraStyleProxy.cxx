@@ -85,6 +85,12 @@ void vtkSMVRJoystickCameraStyleProxy::UpdateVTKObjects()
 
   ivp = vtkSMIntVectorProperty::SafeDownCast(this->GetProperty("InvertYAxis"));
   this->SetInvertYAxis(static_cast<bool>(ivp->GetElement(0)));
+
+  ivp = vtkSMIntVectorProperty::SafeDownCast(this->GetProperty("InvertFwdMovement"));
+  this->SetInvertFwdMovement(static_cast<bool>(ivp->GetElement(0)));
+
+  ivp = vtkSMIntVectorProperty::SafeDownCast(this->GetProperty("InvertRightMovement"));
+  this->SetInvertRightMovement(static_cast<bool>(ivp->GetElement(0)));
 }
 
 // ----------------------------------------------------------------------------
@@ -194,5 +200,14 @@ void vtkSMVRJoystickCameraStyleProxy::HandleValuator(const vtkVREvent& event)
   if (this->InvertYAxis)
   {
     this->OrientationY *= -1;
+  }
+
+  if (this->InvertFwdMovement)
+  {
+    this->MoveForward *= -1;
+  }
+  if (this->InvertRightMovement)
+  {
+    this->MoveRight *= -1;
   }
 }

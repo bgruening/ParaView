@@ -236,13 +236,33 @@
           Invert the X axis of the camera rotation.
         </Documentation>
       </IntVectorProperty>
-      <IntVectorProperty command="SetInvertXAxis"
+      <IntVectorProperty command="SetInvertYAxis"
                          name="InvertYAxis"
                          default_values="0"
                          number_of_elements="1">
         <BooleanDomain name="bool"/>
         <Documentation>
           Invert the Y axis of the camera rotation.
+        </Documentation>
+      </IntVectorProperty>
+      <IntVectorProperty command="SetInvertFwdMovement"
+                         name="InvertFwdMovement"
+                         label="Invert forward/backward movement"
+                         default_values="0"
+                         number_of_elements="1">
+        <BooleanDomain name="bool"/>
+        <Documentation>
+          Invert the forward/backward movement of the camera.
+        </Documentation>
+      </IntVectorProperty>
+      <IntVectorProperty command="SetInvertRightMovement"
+                         name="InvertRightMovement"
+                         label="Invert right/left movement"
+                         default_values="0"
+                         number_of_elements="1">
+        <BooleanDomain name="bool"/>
+        <Documentation>
+          Invert the right/left movement of the camera.
         </Documentation>
       </IntVectorProperty>
       <DoubleVectorProperty name="LookRotationSensitivity"
